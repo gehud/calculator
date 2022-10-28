@@ -1,6 +1,8 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@inject IStringLocalizer<Strings> localizer;
+
+<div class="top-row ps-3 navbar navbar-dark">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="">Calculator</a>
+		<a class="navbar-brand" href="">@localizer["Calculator"]</a>
 		<button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -11,17 +13,17 @@
 	<nav class="flex-column">
 		<div class="nav-item px-3">
 			<NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-				<span class="oi oi-home" aria-hidden="true"></span> Home
+				<span class="oi oi-home" aria-hidden="true"></span> @localizer["Menu"]
 			</NavLink>
 		</div>
 		<div class="nav-item px-3">
 			<NavLink class="nav-link" href="integrals">
-				<span class="oi oi-calculator" aria-hidden="true"></span> Integrals
+				<span class="oi oi-calculator" aria-hidden="true"></span> @localizer["Integrals"]
 			</NavLink>
 		</div>
 		<div class="nav-item px-3">
 			<NavLink class="nav-link" href="about">
-				<span class="oi oi-info" aria-hidden="true"></span> About
+				<span class="oi oi-info" aria-hidden="true"></span> @localizer["About"]
 			</NavLink>
 		</div>
 	</nav>

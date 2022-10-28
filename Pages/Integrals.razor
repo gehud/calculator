@@ -1,14 +1,23 @@
 ﻿@page "/integrals"
+@inject NavigationManager NavigationManager;
+@inject IStringLocalizer<Strings> Localizer;
 
-<h3>Integrals</h3>
+<h3>@Localizer["Integrals"]</h3>
 
-<button class="btn-outline-dark" @onclick="NavigateToRect">Rect</button>
-
-@inject NavigationManager navigationManager;
+<h4>@Localizer["NumericalMethods"]</h4>
+<div style="width:50%">
+	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToLeftSideRectangles">@Localizer["LeftSideRectanglesIntegrals"]</button>
+	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToRightSideRectangles">@Localizer["RightSideRectanglesIntegrals"]</button>
+</div>
 
 @code {
-	void NavigateToRect() 
+	void NavigateToLeftSideRectangles() 
 	{
-		navigationManager.NavigateTo("integrals/rect");
+		NavigationManager.NavigateTo("integrals/left-side-rectangles");
+	}
+
+	void NavigateToRightSideRectangles()
+	{
+		NavigationManager.NavigateTo("integrals/right-side-rectangles");
 	}
 }

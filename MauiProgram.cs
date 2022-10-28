@@ -16,6 +16,7 @@ public static class MauiProgram
 #if DEBUG
 		builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
+		builder.Services.AddLocalization();
 
 		return builder.Build();
 	}

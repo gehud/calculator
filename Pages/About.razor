@@ -1,6 +1,7 @@
 ﻿@page "/about"
+@inject IStringLocalizer<Strings> localizer;
 
-<h3>About</h3>
+<h3>@localizer["About"]</h3>
 
 @code {
 
