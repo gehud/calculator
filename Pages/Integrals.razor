@@ -1,0 +1,14 @@
+﻿@page "/integrals"
+
+<h3>Integrals</h3>
+
+<button class="btn-outline-dark" @onclick="NavigateToRect">Rect</button>
+
+@inject NavigationManager navigationManager;
+
+@code {
+	void NavigateToRect() 
+	{
+		navigationManager.NavigateTo("integrals/rect");
+	}
+}

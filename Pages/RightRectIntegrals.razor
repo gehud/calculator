@@ -1,0 +1,15 @@
+﻿@page "/integrals/rect/right"
+
+<div>
+	<h3 style="display:inline-block">Right Rect Integrals</h3>
+	<button class="btn-outline-dark" @onclick="NavigateBack">Back</button>
+</div>
+
+@inject NavigationManager navigationManager;
+
+@code {
+	void NavigateBack()
+	{
+		navigationManager.NavigateTo("integrals/rect");
+	}
+}
