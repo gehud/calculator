@@ -1,0 +1,107 @@
+﻿@page "/integrals/parabola/variable-step"
+@using AngouriMath;
+@using AngouriMath.Extensions;
+@inject NavigationManager NavigationManager;
+@inject IStringLocalizer<Strings> Localizer;
+
+<div>
+	<h3 style="display:inline-block">@Localizer["VariableStepAlgorithm"]</h3>
+	<button class="btn-outline-dark" @onclick="NavigateBack">@Localizer["Back"]</button>
+</div>
+
+<table>
+	<tr>
+		<td style="text-align:center">f(x) = </td>
+		<td style="text-align:center">
+			<input type="text" @bind-value="functionText" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">a = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="a" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">b = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="b" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">n = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="n" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">e = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="e" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">
+			<button class="btn-outline-dark" @onclick="Calculate">@Localizer["Answer"]:</button>
+		</td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="result"></input>
+		</td>
+	</tr>
+</table>
+
+@code {
+	private double a;
+	private double b;
+	private double e;
+	private int n;
+	private string functionText;
+	private double result;
+
+	private void NavigateBack()
+	{
+		NavigationManager.NavigateTo("integrals/parabola");
+	}
+
+	void Calculate()
+	{
+		if (functionText == null)
+			return;
+
+		Entity expresion = functionText;
+		var f = expresion.Compile<double, double>("x");
+
+		double h = (b - a) / n;
+		double secondIntegral, r;
+		double firstIntegral = 0.0;
+		do
+		{
+			double x = a + h;
+			double sum1 = f(a) + f(b);
+			double sum2 = 0.0;
+			do
+			{
+				double c = f(x);
+				sum2 += c;
+				x = x + 2 * h;
+			}
+			while (x <= b - h);
+			double sum3 = 0.0;
+			x = a + 2 * h;
+			do
+			{
+				double c = f(x);
+				sum3 += c;
+				x = x + 2 * h;
+			}
+			while (x <= b - 2 * h);
+
+			secondIntegral = (sum1 + 4 * sum2 + 2 * sum3) * h / 3;
+			r = Math.Abs(secondIntegral - firstIntegral);
+			firstIntegral = secondIntegral;
+			h = h / 2;
+		} while (r > e);
+
+		result = secondIntegral;
+	}
+}

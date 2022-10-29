@@ -1,9 +1,9 @@
-﻿@page "/integrals/right-side-rectangles"
+﻿@page "/integrals/parabola"
 @inject NavigationManager NavigationManager;
 @inject IStringLocalizer<Strings> Localizer;
 
 <div>
-	<h3 style="display:inline-block">@Localizer["RightSideRectanglesMethod"]</h3>
+	<h3 style="display:inline-block">@Localizer["ParabolaMethod"]</h3>
 	<button class="btn-outline-dark" @onclick="NavigateBack">@Localizer["Back"]</button>
 </div>
 
@@ -14,18 +14,18 @@
 </div>
 
 @code {
-	void NavigateBack()
+	private void NavigateBack()
 	{
 		NavigationManager.NavigateTo("integrals");
 	}
 
 	private void NavigateToConstantStep()
 	{
-		NavigationManager.NavigateTo("integrals/right-side-rectangles/constant-step");
+		NavigationManager.NavigateTo("integrals/parabola/constant-step");
 	}
 
 	private void NavigateToVariableStep()
 	{
-		NavigationManager.NavigateTo("integrals/right-side-rectangles/variable-step");
+		NavigationManager.NavigateTo("integrals/parabola/variable-step");
 	}
 }

@@ -123,16 +123,22 @@
   <data name="Algorithms" xml:space="preserve">
     <value>Алгоритмы</value>
   </data>
+  <data name="Answer" xml:space="preserve">
+    <value>Ответ</value>
+  </data>
   <data name="Back" xml:space="preserve">
     <value>Назад</value>
   </data>
   <data name="Calculator" xml:space="preserve">
     <value>Калькулятор</value>
   </data>
+  <data name="ConstantStepAlgorithm" xml:space="preserve">
+    <value>Алгоритм с постоянным шагом</value>
+  </data>
   <data name="Integrals" xml:space="preserve">
     <value>Интегралы</value>
   </data>
-  <data name="LeftSideRectanglesIntegrals" xml:space="preserve">
+  <data name="LeftSideRectanglesMethod" xml:space="preserve">
     <value>Метод прямоугольников левых частей</value>
   </data>
   <data name="Menu" xml:space="preserve">
@@ -141,7 +147,16 @@
   <data name="NumericalMethods" xml:space="preserve">
     <value>Численные методы</value>
   </data>
-  <data name="RightSideRectanglesIntegrals" xml:space="preserve">
+  <data name="ParabolaMethod" xml:space="preserve">
+    <value>Метод парабол</value>
+  </data>
+  <data name="RightSideRectanglesMethod" xml:space="preserve">
     <value>Метод прямоугольников правых частей</value>
+  </data>
+  <data name="TrapezoidalMethod" xml:space="preserve">
+    <value>Метод трапеций</value>
+  </data>
+  <data name="VariableStepAlgorithm" xml:space="preserve">
+    <value>Алгоритм с переменным шагом</value>
   </data>
 </root>

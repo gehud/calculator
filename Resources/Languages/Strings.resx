@@ -123,17 +123,23 @@
   <data name="Algorithms" xml:space="preserve">
     <value>Algorithms</value>
   </data>
+  <data name="Answer" xml:space="preserve">
+    <value>Answer</value>
+  </data>
   <data name="Back" xml:space="preserve">
     <value>Back</value>
   </data>
   <data name="Calculator" xml:space="preserve">
     <value>Calculator</value>
   </data>
+  <data name="ConstantStepAlgorithm" xml:space="preserve">
+    <value>Constant step algorithm</value>
+  </data>
   <data name="Integrals" xml:space="preserve">
     <value>Integrals</value>
   </data>
-  <data name="LeftSideRectanglesIntegrals" xml:space="preserve">
-    <value>Left-side rectangles integrals</value>
+  <data name="LeftSideRectanglesMethod" xml:space="preserve">
+    <value>Left-side rectangles method</value>
   </data>
   <data name="Menu" xml:space="preserve">
     <value>Menu</value>
@@ -141,7 +147,16 @@
   <data name="NumericalMethods" xml:space="preserve">
     <value>Numerical methods</value>
   </data>
-  <data name="RightSideRectanglesIntegrals" xml:space="preserve">
-    <value>Right-side rectangles integrals</value>
+  <data name="ParabolaMethod" xml:space="preserve">
+    <value>Parabola method</value>
+  </data>
+  <data name="RightSideRectanglesMethod" xml:space="preserve">
+    <value>Right-side rectangles method</value>
+  </data>
+  <data name="TrapezoidalMethod" xml:space="preserve">
+    <value>Trapezoidal мethod</value>
+  </data>
+  <data name="VariableStepAlgorithm" xml:space="preserve">
+    <value>Variable step algorithm</value>
   </data>
 </root>

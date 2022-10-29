@@ -1,0 +1,79 @@
+﻿@page "/integrals/right-side-rectangles/constant-step"
+@using AngouriMath;
+@using AngouriMath.Extensions;
+@inject NavigationManager NavigationManager;
+@inject IStringLocalizer<Strings> Localizer;
+
+<div>
+	<h3 style="display:inline-block">@Localizer["ConstantStepAlgorithm"]</h3>
+	<button class="btn-outline-dark" @onclick="NavigateBack">@Localizer["Back"]</button>
+</div>
+
+<table>
+	<tr>
+		<td style="text-align:center">f(x) = </td>
+		<td style="text-align:center">
+			<input type="text" @bind-value="functionText" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">a = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="a" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">b = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="b" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">n = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="n" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">
+			<button class="btn-outline-dark" @onclick="Calculate">@Localizer["Answer"]:</button>
+		</td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="result"></input>
+		</td>
+	</tr>
+</table>
+
+@code {
+	private double a;
+	private double b;
+	private int n;
+	private string functionText;
+	private double result;
+
+	private void NavigateBack()
+	{
+		NavigationManager.NavigateTo("integrals/right-side-rectangles");
+	}
+
+	void Calculate()
+	{
+		if (functionText == null)
+			return;
+
+		Entity expresion = functionText;
+		var f = expresion.Compile<double, double>("x");
+
+		double h = (b - a) / n;
+		double x = a + h;
+		double sum = 0.0;
+		do
+		{
+			sum += f(x);
+			x += h;
+		}
+		while (x <= b);
+
+		result = sum * h;
+	}
+}

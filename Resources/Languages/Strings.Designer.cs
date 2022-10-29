@@ -79,6 +79,15 @@ namespace Calculator.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Answer.
+        /// </summary>
+        internal static string Answer {
+            get {
+                return ResourceManager.GetString("Answer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back.
         /// </summary>
         internal static string Back {
@@ -97,6 +106,15 @@ namespace Calculator.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Constant step algorithm.
+        /// </summary>
+        internal static string ConstantStepAlgorithm {
+            get {
+                return ResourceManager.GetString("ConstantStepAlgorithm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Integrals.
         /// </summary>
         internal static string Integrals {
@@ -106,11 +124,11 @@ namespace Calculator.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Left-side rectangles integrals.
+        ///   Looks up a localized string similar to Left-side rectangles method.
         /// </summary>
-        internal static string LeftSideRectanglesIntegrals {
+        internal static string LeftSideRectanglesMethod {
             get {
-                return ResourceManager.GetString("LeftSideRectanglesIntegrals", resourceCulture);
+                return ResourceManager.GetString("LeftSideRectanglesMethod", resourceCulture);
             }
         }
         
@@ -133,11 +151,38 @@ namespace Calculator.Resources.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Right-side rectangles integrals.
+        ///   Looks up a localized string similar to Parabola method.
         /// </summary>
-        internal static string RightSideRectanglesIntegrals {
+        internal static string ParabolaMethod {
             get {
-                return ResourceManager.GetString("RightSideRectanglesIntegrals", resourceCulture);
+                return ResourceManager.GetString("ParabolaMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right-side rectangles method.
+        /// </summary>
+        internal static string RightSideRectanglesMethod {
+            get {
+                return ResourceManager.GetString("RightSideRectanglesMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trapezoidal мethod.
+        /// </summary>
+        internal static string TrapezoidalMethod {
+            get {
+                return ResourceManager.GetString("TrapezoidalMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variable step algorithm.
+        /// </summary>
+        internal static string VariableStepAlgorithm {
+            get {
+                return ResourceManager.GetString("VariableStepAlgorithm", resourceCulture);
             }
         }
     }
