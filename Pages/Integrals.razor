@@ -2,10 +2,10 @@
 @inject NavigationManager NavigationManager;
 @inject IStringLocalizer<Strings> Localizer;
 
-<h3>@Localizer["Integrals"]</h3>
+<h3 style="text-align:center">@Localizer["Integrals"]</h3>
 
-<h4>@Localizer["NumericalMethods"]</h4>
-<div style="width:50%">
+<h4 style="text-align:center">@Localizer["NumericalMethods"]</h4>
+<div style="width:50%; margin:auto">
 	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToLeftSideRectangles">@Localizer["LeftSideRectanglesMethod"]</button>
 	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToRightSideRectangles">@Localizer["RightSideRectanglesMethod"]</button>
 	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToTrapezoidal">@Localizer["TrapezoidalMethod"]</button>

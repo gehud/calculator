@@ -1,0 +1,25 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager;
+@inject IStringLocalizer<Strings> Localizer;
+
+@if (BackPage != null) {
+	<button class="btn-outline-dark" @onclick="NavigateBack">@Localizer["Back"]</button>
+}
+@if (Label != null) {
+	<h3 style="text-align:center">@Localizer[Label]</h3>
+}
+
+@Body
+
+@code {
+	[Parameter]
+	public string Label { get; set; }
+
+	[Parameter]
+	public string BackPage { get; set; }
+
+	private void NavigateBack()
+	{
+		NavigationManager.NavigateTo(BackPage);
+	}
+}

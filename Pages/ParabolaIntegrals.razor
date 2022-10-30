@@ -1,31 +1,7 @@
 ﻿@page "/integrals/parabola"
-@inject NavigationManager NavigationManager;
-@inject IStringLocalizer<Strings> Localizer;
 
-<div>
-	<h3 style="display:inline-block">@Localizer["ParabolaMethod"]</h3>
-	<button class="btn-outline-dark" @onclick="NavigateBack">@Localizer["Back"]</button>
-</div>
-
-<h4>@Localizer["Algorithms"]</h4>
-<div style="width:50%">
-	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToConstantStep">@Localizer["ConstantStepAlgorithm"]</button>
-	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToVariableStep">@Localizer["VariableStepAlgorithm"]</button>
-</div>
-
-@code {
-	private void NavigateBack()
-	{
-		NavigationManager.NavigateTo("integrals");
-	}
-
-	private void NavigateToConstantStep()
-	{
-		NavigationManager.NavigateTo("integrals/parabola/constant-step");
-	}
-
-	private void NavigateToVariableStep()
-	{
-		NavigationManager.NavigateTo("integrals/parabola/variable-step");
-	}
-}
+<NumericMethodLayout 
+	Label="ParabolaMethod"
+	BackPage="integrals" 
+	ConstantStepAlgorithm="integrals/parabola/constant-step"
+	VariableStepAlgorithm="integrals/parabola/variable-step" />

@@ -1,0 +1,67 @@
+﻿@inherits LayoutComponentBase
+@inject IStringLocalizer<Strings> Localizer;
+@using AngouriMath;
+@using AngouriMath.Extensions;
+
+<TreePageLayout Label="ConstantStepAlgorithm" BackPage="@BackPage"/>
+
+<table style="margin:auto">
+	<tr>
+		<td style="text-align:center">f(x) = </td>
+		<td style="text-align:center">
+			<input type="text" @bind-value="functionText" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">a = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="a" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">b = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="b" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">n = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="n" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">
+			<button class="btn-outline-dark" @onclick="Calculate">@Localizer["Answer"]:</button>
+		</td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="result"></input>
+		</td>
+	</tr>
+</table>
+
+@Body
+
+@code {
+	[Parameter]
+	public string BackPage { get; set; }
+
+	[Parameter]
+	public Func<Func<double, double>, double, double, long, double> NumericMethod { get; set; }
+
+	private string functionText;
+	private double a;
+	private double b;
+	private long n;
+	private double result;
+
+	void Calculate() {
+		if (functionText == null || NumericMethod == null)
+			return;
+
+		Entity expresion = functionText;
+		var function = expresion.Compile<double, double>("x");
+
+		result = NumericMethod(function, a, b, n);
+	}
+}

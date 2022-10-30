@@ -1,0 +1,41 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager;
+@inject IStringLocalizer<Strings> Localizer;
+
+<TreePageLayout 
+	Label="@Label"
+	BackPage="@BackPage"/>
+
+<h4 style="text-align:center">@Localizer["Algorithms"]</h4>
+<div style="width:50%; margin:auto">
+	@if (ConstantStepAlgorithm != null) { 
+		<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToConstantStep">@Localizer["ConstantStepAlgorithm"]</button>
+	}
+	@if (VariableStepAlgorithm != null) {
+		<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToVariableStep">@Localizer["VariableStepAlgorithm"]</button>
+	}
+</div>
+
+@Body
+
+@code {
+	[Parameter]
+	public string Label { get; set; }	
+
+	[Parameter]
+	public string BackPage { get; set; }
+
+	[Parameter]
+	public string ConstantStepAlgorithm { get; set; }
+
+	[Parameter]
+	public string VariableStepAlgorithm { get; set; }
+
+	private void NavigateToConstantStep() {
+		NavigationManager.NavigateTo(ConstantStepAlgorithm);
+	}
+
+	private void NavigateToVariableStep() {
+		NavigationManager.NavigateTo(VariableStepAlgorithm);
+	}
+}
