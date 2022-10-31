@@ -1,0 +1,94 @@
+﻿@page "/multiple-integrals"
+@inject IStringLocalizer<Strings> Localizer;
+@using AngouriMath;
+@using AngouriMath.Extensions;
+
+<TreePageLayout Label="MultipleIntegrals"/>
+
+<table style="margin:auto">
+	<tr>
+		<td style="text-align:center">f(x) = </td>
+		<td style="text-align:center">
+			<input type="text" @bind-value="functionText" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">a = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="a" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">b = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="b" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">c = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="c" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">d = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="d" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">nx = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="nx" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">ny = </td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="ny" />
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">
+			<button class="btn-outline-dark" @onclick="Calculate">@Localizer["Answer"]:</button>
+		</td>
+		<td style="text-align:center">
+			<input type="number" @bind-value="result"></input>
+		</td>
+	</tr>
+</table>
+
+@code {
+	private string functionText;
+	private double a;
+	private double b;
+	private double c;
+	private double d;
+	private long nx;
+	private long ny;
+	private double result;
+
+	void Calculate()
+	{
+		if (functionText == null)
+			return;
+
+		Entity expresion = functionText;
+		var function = expresion.Compile<double, double, double>("x", "y");
+
+		double hx = (b - a) / nx;
+		double hy = (d - c) / ny;
+		double sx = 0.0;
+		for (double x = a; x <= b - hx; x += hx) {
+			double sy = 0.0;
+			for (double y = c; y < d - hy; y += hy) {
+				sy += function(x, y);
+			}
+			double iy = hy * sy;
+			sx += iy;
+		}
+		double ix = hx * sx;
+
+		result = ix;
+	}
+}

@@ -142,6 +142,15 @@ namespace Calculator.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Multiple integrals.
+        /// </summary>
+        internal static string MultipleIntegrals {
+            get {
+                return ResourceManager.GetString("MultipleIntegrals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Numerical methods.
         /// </summary>
         internal static string NumericalMethods {

@@ -144,6 +144,9 @@
   <data name="Menu" xml:space="preserve">
     <value>Menu</value>
   </data>
+  <data name="MultipleIntegrals" xml:space="preserve">
+    <value>Multiple integrals</value>
+  </data>
   <data name="NumericalMethods" xml:space="preserve">
     <value>Numerical methods</value>
   </data>

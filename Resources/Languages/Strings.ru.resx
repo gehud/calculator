@@ -144,6 +144,9 @@
   <data name="Menu" xml:space="preserve">
     <value>Меню</value>
   </data>
+  <data name="MultipleIntegrals" xml:space="preserve">
+    <value>Кратные интегралы</value>
+  </data>
   <data name="NumericalMethods" xml:space="preserve">
     <value>Численные методы</value>
   </data>
