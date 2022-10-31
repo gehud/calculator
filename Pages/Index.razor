@@ -1,4 +1,20 @@
 ﻿@page "/"
-@inject IStringLocalizer<Strings> localizer;
+@inject NavigationManager NavigationManager;
+@inject IStringLocalizer<Strings> Localizer;
 
-<h3>@localizer["Menu"]</h3>
+<TreePageLayout Label="Menu"/>
+
+<div style="width:50%; margin:auto">
+	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToIntegrals">@Localizer["Integrals"]</button>
+	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToMultipleIntegrals">@Localizer["MultipleIntegrals"]</button>
+</div>
+
+@code { 
+	private void NavigateToIntegrals() {
+		NavigationManager.NavigateTo("integrals");
+	}
+
+	private void NavigateToMultipleIntegrals() {
+		NavigationManager.NavigateTo("multiple-integrals");
+	}
+}
