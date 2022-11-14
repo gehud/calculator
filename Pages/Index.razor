@@ -7,6 +7,7 @@
 <div style="width:50%; margin:auto">
 	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToIntegrals">@Localizer["Integrals"]</button>
 	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToMultipleIntegrals">@Localizer["MultipleIntegrals"]</button>
+	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToElementaryFunctions">@Localizer["ElementaryFunctions"]</button>
 </div>
 
 @code { 
@@ -16,5 +17,9 @@
 
 	private void NavigateToMultipleIntegrals() {
 		NavigationManager.NavigateTo("multiple-integrals");
+	}
+
+	private void NavigateToElementaryFunctions() {
+		NavigationManager.NavigateTo("elementary-functions");
 	}
 }

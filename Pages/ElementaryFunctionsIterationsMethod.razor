@@ -1,7 +1,58 @@
 ﻿@page "/elementary-functions/iterations-method"
+@inject IStringLocalizer<Strings> Localizer;
+@using AngouriMath;
+@using AngouriMath.Extensions;
 
 <TreePageLayout Label="IterationsMethod" BackPage="elementary-functions" />
 
-@code {
+<table style="margin:auto">
+	<tr>
+		<td>g(x, y) = </td>
+		<td><input type="text" @bind="functionText" /></td>
+	</tr>
+	<tr>
+		<td>e = </td>
+		<td><input type="number" @bind="e" /></td>
+	</tr>
+	<tr>
+		<td>x = </td>
+		<td><input type="number" @bind="x" /></td>
+	</tr>
+	<tr>
+		<td>y0 = </td>
+		<td><input type="number" @bind="y0" /></td>
+	</tr>
+	<tr>
+		<td>
+			<button class="btn-outline-dark" @onclick="Calculate">@Localizer["Answer"]:</button>
+		</td>
+		<td>
+			<input type="number" @bind="result"></input>
+		</td>
+	</tr>
+</table>
 
+@code {
+	private string functionText;
+	private double e;
+	private double x;
+	private double y0;
+	private double result;
+
+	private void Calculate() {
+		if (functionText == null)
+			return;
+
+		Entity expresion = functionText;
+		var function = expresion.Compile<double, double, double>("x", "y");
+
+		double yLast = y0;
+		double yNew = function(x, yLast);
+		while (yNew - yLast > e) {
+			yLast = yNew;
+			yNew = function(x, yLast);
+		}
+
+		result = yNew;
+	}
 }
