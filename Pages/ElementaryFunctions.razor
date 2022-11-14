@@ -1,0 +1,20 @@
+﻿@page "/elementary-functions"
+@inject NavigationManager NavigationManager;
+@inject IStringLocalizer<Strings> Localizer;
+
+<TreePageLayout Label="ElementaryFunctions"/>
+
+<div style="width:50%; margin:auto">
+	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToChebyshevsMethod">@Localizer["ChebyshevsMethod"]</button>
+	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToIterationsMethod">@Localizer["IterationsMethod"]</button>
+</div>
+
+@code {
+	private void NavigateToChebyshevsMethod() {
+		NavigationManager.NavigateTo("elementary-functions/chebyshevs-method");
+	}
+
+	private void NavigateToIterationsMethod() {
+		NavigationManager.NavigateTo("elementary-functions/iterations-method");
+	}
+}

@@ -70,6 +70,15 @@ namespace Calculator.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        internal static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Algorithms.
         /// </summary>
         internal static string Algorithms {
@@ -106,6 +115,24 @@ namespace Calculator.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chebyshev&apos;s method.
+        /// </summary>
+        internal static string ChebyshevsMethod {
+            get {
+                return ResourceManager.GetString("ChebyshevsMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coefficients.
+        /// </summary>
+        internal static string Coefficients {
+            get {
+                return ResourceManager.GetString("Coefficients", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Constant step algorithm.
         /// </summary>
         internal static string ConstantStepAlgorithm {
@@ -115,11 +142,29 @@ namespace Calculator.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Elementary functions.
+        /// </summary>
+        internal static string ElementaryFunctions {
+            get {
+                return ResourceManager.GetString("ElementaryFunctions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Integrals.
         /// </summary>
         internal static string Integrals {
             get {
                 return ResourceManager.GetString("Integrals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Iterations method.
+        /// </summary>
+        internal static string IterationsMethod {
+            get {
+                return ResourceManager.GetString("IterationsMethod", resourceCulture);
             }
         }
         
@@ -165,6 +210,24 @@ namespace Calculator.Resources.Languages {
         internal static string ParabolaMethod {
             get {
                 return ResourceManager.GetString("ParabolaMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        internal static string Remove {
+            get {
+                return ResourceManager.GetString("Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required accuracy not achieved.
+        /// </summary>
+        internal static string RequiredAccuracyNotAchieved {
+            get {
+                return ResourceManager.GetString("RequiredAccuracyNotAchieved", resourceCulture);
             }
         }
         

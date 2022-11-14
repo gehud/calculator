@@ -1,0 +1,101 @@
+﻿@page "/elementary-functions/chebyshevs-method"
+@inject IStringLocalizer<Strings> Localizer;
+@using AngouriMath;
+@using AngouriMath.Extensions;
+
+<TreePageLayout Label="ChebyshevsMethod" BackPage="elementary-functions"/>
+
+<table style="margin:auto">
+	<tr>
+		<td>i(k) = </td>
+		<td style="text-align:center">
+			<input type="text" @bind="indexerText" />
+		</td>
+	</tr>
+	<tr>
+		<td>e = </td>
+		<td style="text-align:center">
+			<input type="number" @bind="e" />
+		</td>
+	</tr>
+	<tr>
+		<td>x = </td>
+		<td style="text-align:center">
+			<input type="number" @bind="x" />
+		</td>
+	</tr>
+	<tr><td>@Localizer["Coefficients"]</td></tr>
+	@for (int i = 0; i < coefficients.Count; i++) {
+		int index = i;
+		<tr>
+			<input 
+				type="number" 
+				@bind="coefficients[index]"
+				@onselect="() => selectedIndex = index"/>
+		</tr>
+	}
+	<tr>
+		<td><button @onclick="AddCoefficient">@Localizer["Add"]</button></td>
+		<td><button @onclick="RemoveCoefficient">@Localizer["Remove"]</button></td>
+	</tr>
+	<tr>
+		<td>
+			<button class="btn-outline-dark" @onclick="Calculate">@Localizer["Answer"]:</button>
+		</td>
+		<td>
+			<input type="number" @bind="result"></input>
+		</td>
+	</tr>
+</table>
+@if (!isPerformed) {
+	<a>@Localizer["RequiredAccuracyNotAchieved"].</a>
+}
+
+@code {
+	private List<double> coefficients = new();
+	private int selectedIndex = 0;
+	private string indexerText;
+	private double e;
+	private double x;
+	private double result;
+	private bool isPerformed = true;
+
+	private void AddCoefficient() {
+		coefficients.Add(0);
+	}
+
+	private void RemoveCoefficient() {
+		if (coefficients.Count != 0 && selectedIndex < coefficients.Count)
+			coefficients.RemoveAt(selectedIndex);
+	}
+
+	private void Calculate() {
+		if (indexerText == null)
+			return;
+
+		Entity expresion = indexerText;
+		var function = expresion.Compile<long, long>("k");
+
+		var a = coefficients;
+
+		if (a.Count == 0)
+			return;
+
+		var c = a[0];
+		var p = 1.0;
+
+		for (int k = 0; k < a.Count; k++) {
+			p *= x;
+			var u = p * a[k];
+			c += u;
+
+			if (Math.Abs(u) <= e) {
+				isPerformed = true;
+				result = c;
+				return;
+			}
+		}
+
+		isPerformed = false;
+	}
+}

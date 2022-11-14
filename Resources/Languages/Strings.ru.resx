@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>Информация</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
   <data name="Algorithms" xml:space="preserve">
     <value>Алгоритмы</value>
   </data>
@@ -132,11 +135,23 @@
   <data name="Calculator" xml:space="preserve">
     <value>Калькулятор</value>
   </data>
+  <data name="ChebyshevsMethod" xml:space="preserve">
+    <value>Метод Чебышова</value>
+  </data>
+  <data name="Coefficients" xml:space="preserve">
+    <value>Коэффициенты</value>
+  </data>
   <data name="ConstantStepAlgorithm" xml:space="preserve">
     <value>Алгоритм с постоянным шагом</value>
   </data>
+  <data name="ElementaryFunctions" xml:space="preserve">
+    <value>Элементарные функции</value>
+  </data>
   <data name="Integrals" xml:space="preserve">
     <value>Интегралы</value>
+  </data>
+  <data name="IterationsMethod" xml:space="preserve">
+    <value>Метод итераций</value>
   </data>
   <data name="LeftSideRectanglesMethod" xml:space="preserve">
     <value>Метод прямоугольников левых частей</value>
@@ -152,6 +167,12 @@
   </data>
   <data name="ParabolaMethod" xml:space="preserve">
     <value>Метод парабол</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Убрать</value>
+  </data>
+  <data name="RequiredAccuracyNotAchieved" xml:space="preserve">
+    <value>Требуемая точность не достигнута</value>
   </data>
   <data name="RightSideRectanglesMethod" xml:space="preserve">
     <value>Метод прямоугольников правых частей</value>

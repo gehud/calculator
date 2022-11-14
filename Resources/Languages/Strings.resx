@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="Algorithms" xml:space="preserve">
     <value>Algorithms</value>
   </data>
@@ -132,11 +135,23 @@
   <data name="Calculator" xml:space="preserve">
     <value>Calculator</value>
   </data>
+  <data name="ChebyshevsMethod" xml:space="preserve">
+    <value>Chebyshev's method</value>
+  </data>
+  <data name="Coefficients" xml:space="preserve">
+    <value>Coefficients</value>
+  </data>
   <data name="ConstantStepAlgorithm" xml:space="preserve">
     <value>Constant step algorithm</value>
   </data>
+  <data name="ElementaryFunctions" xml:space="preserve">
+    <value>Elementary functions</value>
+  </data>
   <data name="Integrals" xml:space="preserve">
     <value>Integrals</value>
+  </data>
+  <data name="IterationsMethod" xml:space="preserve">
+    <value>Iterations method</value>
   </data>
   <data name="LeftSideRectanglesMethod" xml:space="preserve">
     <value>Left-side rectangles method</value>
@@ -152,6 +167,12 @@
   </data>
   <data name="ParabolaMethod" xml:space="preserve">
     <value>Parabola method</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="RequiredAccuracyNotAchieved" xml:space="preserve">
+    <value>Required accuracy not achieved</value>
   </data>
   <data name="RightSideRectanglesMethod" xml:space="preserve">
     <value>Right-side rectangles method</value>
