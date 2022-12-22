@@ -142,11 +142,29 @@ namespace Calculator.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Differential equations.
+        /// </summary>
+        internal static string DifferentialEquations {
+            get {
+                return ResourceManager.GetString("DifferentialEquations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Elementary functions.
         /// </summary>
         internal static string ElementaryFunctions {
             get {
                 return ResourceManager.GetString("ElementaryFunctions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Euler method.
+        /// </summary>
+        internal static string EulerMethod {
+            get {
+                return ResourceManager.GetString("EulerMethod", resourceCulture);
             }
         }
         
@@ -237,6 +255,15 @@ namespace Calculator.Resources.Languages {
         internal static string RightSideRectanglesMethod {
             get {
                 return ResourceManager.GetString("RightSideRectanglesMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Runge-Kutta method.
+        /// </summary>
+        internal static string RungeKuttaMethod {
+            get {
+                return ResourceManager.GetString("RungeKuttaMethod", resourceCulture);
             }
         }
         

@@ -34,7 +34,7 @@
         <PackageCertificateThumbprint>D53963A77C332C96B3B5FBC41E841B86AFF1E854</PackageCertificateThumbprint>
         <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
         <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
-        <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+        <AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
         <GenerateTestArtifacts>True</GenerateTestArtifacts>
         <AppInstallerUri>C:\Calculator</AppInstallerUri>
         <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
@@ -59,6 +59,7 @@
 
     <ItemGroup>
       <Folder Include="Data\" />
+      <Folder Include="Properties\PublishProfiles\" />
       <Folder Include="Resources\Images\" />
     </ItemGroup>
 

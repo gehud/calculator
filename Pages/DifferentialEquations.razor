@@ -1,0 +1,21 @@
+﻿@page "/differential-equations"
+@inject NavigationManager NavigationManager;
+@inject IStringLocalizer<Strings> Localizer;
+@using AngouriMath;
+
+<TreePageLayout Label="DifferentialEquations" />
+
+<div style="width:50%; margin:auto">
+	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToEulerMethod">@Localizer["EulerMethod"]</button>
+	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToRungeKutta">@Localizer["RungeKuttaMethod"]</button>
+</div>
+
+@code {
+	private void NavigateToEulerMethod() {
+		NavigationManager.NavigateTo("differential-equations/euler");
+	}
+
+	private void NavigateToRungeKutta() {
+		NavigationManager.NavigateTo("differential-equations/runge-kutta");
+	}
+}

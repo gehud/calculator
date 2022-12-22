@@ -1,0 +1,101 @@
+﻿@page "/differential-equations/euler"
+@inject IStringLocalizer<Strings> Localizer;
+@using AngouriMath;
+
+<TreePageLayout Label="EulerMethod" BackPage="differential-equations" />
+
+<table style="margin:auto">
+	<tr>
+		<td>f(x, y) = </td>
+		<td><input type="text" @bind="functionText" /></td>
+	</tr>
+	<tr>
+		<td>a = </td>
+		<td style="text-align:center">
+			<input type="number" @bind="a" />
+		</td>
+	</tr>
+	<tr>
+		<td>b = </td>
+		<td style="text-align:center">
+			<input type="number" @bind="b" />
+		</td>
+	</tr>
+	<tr>
+		<td>n = </td>
+		<td style="text-align:center">
+			<input type="number" @bind="n" />
+		</td>
+	</tr>
+	<tr>
+		<td>x0 = </td>
+		<td style="text-align:center">
+			<input type="number" @bind="x0" />
+		</td>
+	</tr>
+	<tr>
+		<td>y0 = </td>
+		<td style="text-align:center">
+			<input type="number" @bind="y0" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button class="btn-outline-dark" @onclick="Calculate">@Localizer["Answer"]:</button>
+		</td>
+	</tr>
+</table>
+
+@if (results.Count != 0) {
+	<table border="1" style="margin:auto">
+		<tr>
+			<td>x</td>
+			<td>y</td>
+		</tr>
+	@foreach (var result in results) {
+		<tr>
+			<td>@result.X.ToString("D5")</td>
+			<td>@result.Y.ToString("D5")</td>
+		</tr>
+	}
+	</table>
+}
+
+@code {
+	private struct ResultPair {
+		public double X;
+		public double Y;
+
+		public ResultPair(double x, double y) {
+			X = x;
+			Y = y;
+		}
+	}
+
+	private string functionText;
+	private double a;
+	private double b;
+	private long n;
+	private double x0;
+	private double y0;
+	private List<ResultPair> results = new();
+
+	private void Calculate() {
+		if (functionText == null)
+			return;
+
+		results.Clear();
+
+		Entity expresion = functionText;
+		var function = expresion.Compile<double, double, double>("x", "y");
+
+		var h = (b - a) / n;
+		var x = x0;
+		var y = y0;
+		while (x < b) {
+			y += h * function(x, y);
+			x += h;
+			results.Add(new ResultPair(x, y));
+		}
+	}
+}

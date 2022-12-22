@@ -144,8 +144,14 @@
   <data name="ConstantStepAlgorithm" xml:space="preserve">
     <value>Constant step algorithm</value>
   </data>
+  <data name="DifferentialEquations" xml:space="preserve">
+    <value>Differential equations</value>
+  </data>
   <data name="ElementaryFunctions" xml:space="preserve">
     <value>Elementary functions</value>
+  </data>
+  <data name="EulerMethod" xml:space="preserve">
+    <value>Euler method</value>
   </data>
   <data name="Integrals" xml:space="preserve">
     <value>Integrals</value>
@@ -176,6 +182,9 @@
   </data>
   <data name="RightSideRectanglesMethod" xml:space="preserve">
     <value>Right-side rectangles method</value>
+  </data>
+  <data name="RungeKuttaMethod" xml:space="preserve">
+    <value>Runge-Kutta method</value>
   </data>
   <data name="TrapezoidalMethod" xml:space="preserve">
     <value>Trapezoidal мethod</value>

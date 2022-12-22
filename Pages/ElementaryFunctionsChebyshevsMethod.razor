@@ -1,27 +1,19 @@
 ﻿@page "/elementary-functions/chebyshevs-method"
 @inject IStringLocalizer<Strings> Localizer;
-@using AngouriMath;
-@using AngouriMath.Extensions;
 
 <TreePageLayout Label="ChebyshevsMethod" BackPage="elementary-functions"/>
 
 <table style="margin:auto">
 	<tr>
-		<td>i(k) = </td>
+		<td>x = </td>
 		<td style="text-align:center">
-			<input type="text" @bind="indexerText" />
+			<input type="number" @bind="x" />
 		</td>
 	</tr>
 	<tr>
 		<td>e = </td>
 		<td style="text-align:center">
 			<input type="number" @bind="e" />
-		</td>
-	</tr>
-	<tr>
-		<td>x = </td>
-		<td style="text-align:center">
-			<input type="number" @bind="x" />
 		</td>
 	</tr>
 	<tr><td>@Localizer["Coefficients"]</td></tr>
@@ -54,7 +46,6 @@
 @code {
 	private List<double> coefficients = new();
 	private int selectedIndex = 0;
-	private string indexerText;
 	private double e;
 	private double x;
 	private double result;
@@ -70,12 +61,6 @@
 	}
 
 	private void Calculate() {
-		if (indexerText == null)
-			return;
-
-		Entity expresion = indexerText;
-		var function = expresion.Compile<long, long>("k");
-
 		var a = coefficients;
 
 		if (a.Count == 0)
@@ -84,7 +69,7 @@
 		var c = a[0];
 		var p = 1.0;
 
-		for (int k = 0; k < a.Count; k++) {
+		for (int k = 1; k < a.Count; k++) {
 			p *= x;
 			var u = p * a[k];
 			c += u;

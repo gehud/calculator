@@ -1,0 +1,106 @@
+﻿@page "/differential-equations/runge-kutta"
+@inject IStringLocalizer<Strings> Localizer;
+@using AngouriMath;
+
+<TreePageLayout Label="RungeKuttaMethod" BackPage="differential-equations" />
+
+<table style="margin:auto">
+	<tr>
+		<td>f(x, y) = </td>
+		<td><input type="text" @bind="functionText" /></td>
+	</tr>
+	<tr>
+		<td>a = </td>
+		<td style="text-align:center">
+			<input type="number" @bind="a" />
+		</td>
+	</tr>
+	<tr>
+		<td>b = </td>
+		<td style="text-align:center">
+			<input type="number" @bind="b" />
+		</td>
+	</tr>
+	<tr>
+		<td>n = </td>
+		<td style="text-align:center">
+			<input type="number" @bind="n" />
+		</td>
+	</tr>
+	<tr>
+		<td>x0 = </td>
+		<td style="text-align:center">
+			<input type="number" @bind="x0" />
+		</td>
+	</tr>
+	<tr>
+		<td>y0 = </td>
+		<td style="text-align:center">
+			<input type="number" @bind="y0" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button class="btn-outline-dark" @onclick="Calculate">@Localizer["Answer"]:</button>
+		</td>
+	</tr>
+</table>
+
+@if (results.Count != 0) {
+	<table border="1" style="margin:auto">
+		<tr>
+			<td>x</td>
+			<td>y</td>
+		</tr>
+		@foreach (var result in results) {
+			<tr>
+				<td>@result.X.ToString("D5")</td>
+				<td>@result.Y.ToString("D5")</td>
+			</tr>
+		}
+	</table>
+}
+
+@code {
+	private struct ResultPair {
+		public double X;
+		public double Y;
+
+		public ResultPair(double x, double y) {
+			X = x;
+			Y = y;
+		}
+	}
+
+	private string functionText;
+	private double a;
+	private double b;
+	private long n;
+	private double x0;
+	private double y0;
+	private List<ResultPair> results = new();
+
+	private void Calculate() {
+		if (functionText == null)
+			return;
+
+		results.Clear();
+
+		Entity expresion = functionText;
+		var f = expresion.Compile<double, double, double>("x", "y");
+
+		var h = (b - a) / n;
+		var x = x0;
+		var y = y0;
+		while (x < b) {
+			var k1 = h * f(x, y);
+			var k2 = h * f(x + h * 0.5f, y + k1 * 0.5f);
+			var k3 = h * f(x + h * 0.5f, y + k2 * 0.5f);
+			var k4 = h * f(x + h, y + k3);
+			var k = (k1 + k2 * 2 + k3 * 2 + k4) / 6;
+			y += k;
+			x += h;
+			results.Add(new ResultPair(x, y));
+		}
+	}	
+}
