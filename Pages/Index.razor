@@ -8,6 +8,7 @@
 	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToIntegrals">@Localizer["Integrals"]</button>
 	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToMultipleIntegrals">@Localizer["MultipleIntegrals"]</button>
 	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToElementaryFunctions">@Localizer["ElementaryFunctions"]</button>
+	<button style="display:block; width:100%; margin-block:5px" class="btn-outline-dark" @onclick="NavigateToDifferentialEquations">@Localizer["DifferentialEquations"]</button>
 </div>
 
 @code { 
@@ -21,5 +22,9 @@
 
 	private void NavigateToElementaryFunctions() {
 		NavigationManager.NavigateTo("elementary-functions");
+	}
+
+	private void NavigateToDifferentialEquations() {
+		NavigationManager.NavigateTo("differential-equations");
 	}
 }
